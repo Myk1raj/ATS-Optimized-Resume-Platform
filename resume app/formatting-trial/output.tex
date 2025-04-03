@@ -1,0 +1,287 @@
+\documentclass[11pt]{article}
+
+% -- Color scheme
+\usepackage{xcolor}
+
+% Default colors
+\definecolor{minimal-main}{HTML}{131313}
+\definecolor{minimal-light}{HTML}{F2F2F2}
+\definecolor{minimal-contrast}{HTML}{F3F2F5}
+
+% Additional color definitions
+\definecolor{minimal-black}{HTML}{131313}
+\definecolor{minimal-white}{HTML}{F3F2F5}
+\definecolor{minimal-red}{HTML}{C43C2D}
+\definecolor{minimal-blue}{HTML}{343454}
+\definecolor{minimal-yellow}{HTML}{F1C40F}
+\definecolor{minimal-green}{HTML}{2D6514}
+\definecolor{minimal-beige}{HTML}{D7B6A5}
+
+% Colorbox environments
+\usepackage[most]{tcolorbox}
+
+% -- Page layout
+\usepackage[paperheight=842pt, paperwidth=595pt, margin=0pt]{geometry}
+\setlength{\parindent}{0pt}
+
+% Interline spacing options
+\newcommand{\largespace}{\\[2pt]}
+\newcommand{\mediumspace}{\\[-3pt]}
+\newcommand{\smallspace}{\\[-5pt]}
+
+% In-box spacing around content
+\newcommand{\inboxspacing}{.015\paperheight}
+
+% Horizontal spacing of the boxes (must sum up to 1)
+\newcommand{\sideboxwidth}{.35}
+\newcommand{\mainboxwidth}{.65}
+
+% Vertical spacing of the boxes (must sum up to 1)
+\newcommand{\headboxheight}{.080}
+\newcommand{\mainboxheight}{.910}
+\newcommand{\footboxheight}{.010}
+
+% -- Font settings
+\usepackage[letterspace=20]{microtype}
+\usepackage[T1]{fontenc}
+\usepackage{raleway}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Custom font commands
+\newcommand{\header}[1]{\uppercase{\textbf{\fontsize{30}{100}{\lsstyle{#1}}}}}
+\newcommand{\titlefont}[1]{\uppercase{\textbf{\Large{#1}}}}
+
+% -- Additional packages
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{hyperref}
+\urlstyle{same}
+
+\begin{document}
+
+\begin{tcbposter}[
+    poster = {columns=1, rows=1, spacing=0pt},
+    boxes = {sharp corners, halign=center, valign=center, boxrule=0pt}
+]
+
+% -- Headbox
+\posterbox[
+    colback=minimal-main,
+    halign=center]
+    {name=headbox,
+    span=1,
+    rowspan=\headboxheight}
+{
+    \color{white}
+    \header{John Doe}
+    
+    \vspace{-7px}
+    \begin{tikzpicture}
+        \draw[fill=white] (-5.0, -0.01) rectangle (5.0, 0.01);
+    \end{tikzpicture}
+    \vspace{5px}
+    
+    \titlefont{Senior Software Engineer & Cloud Architect}
+}
+
+% -- Sidebox
+\posterbox[
+    colback=minimal-light,
+    valign=top,
+    top=\inboxspacing,
+    halign=right,
+    right=\inboxspacing]
+    {name=sidebar,
+    below=headbox,
+    column=1,
+    span=\sideboxwidth,
+    rowspan=\mainboxheight}
+{
+    \begin{tabular}{rl}
+        \multicolumn{2}{@{}c@{}}{\scalebox{0.25}{\input{images/image.tex}}} \\
+        \mediumspace
+        & \titlefont{Contact} \\
+        
+        \hline \mediumspace
+        
+        \multirow{4}{*}{\scalebox{0.075}{\input{icons/address.tex}}}
+            & \textbf{Address} \\
+            & 123 Main Street \\
+    & Anytown, ST 12345 \\
+    & Country \\
+    & \smallspace
+
+
+        \multirow{2}{*}{\scalebox{0.075}{\input{icons/phone.tex}}}
+            & \textbf{Phone} \\
+            & \href{tel:+12345678901}{\text{+1 234 567 8901}} \\
+            & \smallspace
+        
+        \multirow{2}{*}{\scalebox{0.075}{\input{icons/email.tex}}}
+            & \textbf{E-Mail} \\
+            & \href{mailto:john.doe@example.com}{\text{john.doe@example.com}} \\
+            & \largespace
+        
+        
+        & \titlefont{Personal} \\
+        \hline \mediumspace
+        
+        
+        \multirow{2}{*}{\scalebox{0.075}{\input{icons/birthday.tex}}}
+            & \textbf{Date of Birth} \\
+            & 01/01/1990 \\
+            & \smallspace
+        
+        \multirow{2}{*}{\scalebox{0.075}{\input{icons/nationality.tex}}}
+            & \textbf{Nationality} \\
+            & United States \\
+            & \largespace
+        
+        
+        & \titlefont{Platforms} \\
+        \hline \mediumspace
+        
+        
+        \multirow{2}{*}{\scalebox{0.075}{\input{icons/github.tex}}}
+            & \textbf{GitHub} \\
+            & \href{https://github.com/johndoe}{johndoe} \\
+            & \smallspace
+        
+        \multirow{2}{*}{\scalebox{0.075}{\input{icons/linkedin.tex}}}
+            & \textbf{LinkedIn} \\
+            & \href{https://linkedin.com/in/john-doe}{john-doe} \\
+            & \largespace
+        
+        
+        & \titlefont{Languages} \\
+        \hline \mediumspace
+        
+        
+        \multirow{2}{*}{\scalebox{0.075}{\input{flags/usa.tex}}}
+            & \textbf{English} \\
+            & Native \\
+            & \smallspace
+        
+        \multirow{2}{*}{\scalebox{0.075}{\input{flags/germany.tex}}}
+            & \textbf{German} \\
+            & Fluent \\
+            & \smallspace
+        
+        \multirow{2}{*}{\scalebox{0.075}{\input{flags/france.tex}}}
+            & \textbf{French} \\
+            & Intermediate \\
+            & \smallspace
+        
+    \end{tabular}
+}
+
+% -- Mainbox
+\posterbox[
+    colback=white,
+    valign=top,
+    top=\inboxspacing,
+    halign=left,
+    left=\inboxspacing  ]
+    {name=mainbox,
+    column*=1,
+    span=\mainboxwidth,
+    below=headbox,
+    rowspan=\mainboxheight}
+{
+    \begin{tabular}{>{\footnotesize}rl}
+        & \titlefont{About Me} \\
+        \hline \mediumspace
+        
+        this is something about me\\
+        & \titlefont{Education} \\
+        \hline \mediumspace
+        
+        2010 - 2014
+    & \textbf{University of Example} \\
+    & Bachelor of Science in Computer Science \\
+    & GPA: 3.8/4.0 \\
+    & Thesis: Example Topic \\
+    & \smallspace
+
+2014 - 2016
+    & \textbf{Example Tech Institute} \\
+    & Master of Science in Data Science \\
+    & GPA: 3.9/4.0 \\
+    & Thesis: Advanced Example Topic \\
+    & \smallspace
+
+
+        
+        & \titlefont{Work Experience} \\
+        \hline \mediumspace
+        
+        2016 - 2020
+    & \textbf{Example Corp} \\
+    & Software Engineer \\
+    & Developed and maintained company website \\
+    & Led team of 5 developers \\
+    & \smallspace
+
+2020 - Present
+    & \textbf{Tech Innovations Inc} \\
+    & Senior Software Engineer \\
+    & Architect for cloud migration projectSenior Software Engineer \\
+    & Architect for cloud migration project \\
+    & Implemented CI/CD pipelines \\
+    & \smallspace
+
+
+        
+        & \titlefont{Selected Publications} \\
+        \hline \mediumspace
+        
+        2018
+    & \textbf{Introduction to Machine Learning Algorithms} \\
+    & \largespace
+
+
+        
+        & \titlefont{Awards} \\
+        \hline \mediumspace
+        
+        2019
+    & \textbf{Innovation Excellence Prize} \\
+2021
+    & \textbf{Tech Leadership Award} \\
+    & \largespace
+
+
+        
+
+        
+        & \titlefont{Skills} \\
+        \hline \mediumspace
+        
+        Languages
+& \textbf{Python, Java, JavaScript, C++} \\
+AIML
+& \textbf{Machine Learning \& Data Analysis} \\
+Cloud
+& \textbf{Cloud Architecture (AWS, Azure, GCP)} \\
+Devops
+& \textbf{DevOps \& CI/CD} \\
+Db
+& \textbf{Database Design \& Optimization} \\
+    & \largespace
+
+
+    \end{tabular}
+}
+
+% -- Footbox
+\posterbox[colback=minimal-main]
+           {name=blankbox2,
+           below=sidebar,
+           column=1,
+           span=1,
+           rowspan=\footboxheight}{}
+
+\end{tcbposter}
+
+\end{document}

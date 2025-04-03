@@ -1,0 +1,16 @@
+python -m venv myenv
+
+
+myenv\Scripts\activate
+
+pip install fastapi streamlit uvicorn requests numpy pandas scikit-learn matplotlib seaborn plotly
+
+
+terminal 1
+python "resume app/backend/main.py"
+
+
+terminal 2
+myenv\Scripts\activate
+cd resume app/frontend 
+streamlit run app.py

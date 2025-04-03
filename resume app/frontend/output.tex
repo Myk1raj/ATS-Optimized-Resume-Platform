@@ -1,0 +1,236 @@
+\documentclass[11pt]{article}
+
+% -- Color scheme
+\usepackage{xcolor}
+
+% Default colors
+\definecolor{minimal-main}{HTML}{131313}
+\definecolor{minimal-light}{HTML}{F2F2F2}
+\definecolor{minimal-contrast}{HTML}{F3F2F5}
+
+% Additional color definitions
+\definecolor{minimal-black}{HTML}{131313}
+\definecolor{minimal-white}{HTML}{F3F2F5}
+\definecolor{minimal-red}{HTML}{C43C2D}
+\definecolor{minimal-blue}{HTML}{343454}
+\definecolor{minimal-yellow}{HTML}{F1C40F}
+\definecolor{minimal-green}{HTML}{2D6514}
+\definecolor{minimal-beige}{HTML}{D7B6A5}
+
+% Colorbox environments
+\usepackage[most]{tcolorbox}
+
+% -- Page layout
+\usepackage[paperheight=842pt, paperwidth=595pt, margin=0pt]{geometry}
+\setlength{\parindent}{0pt}
+
+% Interline spacing options
+\newcommand{\largespace}{\\[2pt]}
+\newcommand{\mediumspace}{\\[-3pt]}
+\newcommand{\smallspace}{\\[-5pt]}
+
+% In-box spacing around content
+\newcommand{\inboxspacing}{.015\paperheight}
+
+% Horizontal spacing of the boxes (must sum up to 1)
+\newcommand{\sideboxwidth}{.35}
+\newcommand{\mainboxwidth}{.65}
+
+% Vertical spacing of the boxes (must sum up to 1)
+\newcommand{\headboxheight}{.080}
+\newcommand{\mainboxheight}{.910}
+\newcommand{\footboxheight}{.010}
+
+% -- Font settings
+\usepackage[letterspace=20]{microtype}
+\usepackage[T1]{fontenc}
+\usepackage{raleway}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Custom font commands
+\newcommand{\header}[1]{\uppercase{\textbf{\fontsize{30}{100}{\lsstyle{#1}}}}}
+\newcommand{\titlefont}[1]{\uppercase{\textbf{\Large{#1}}}}
+
+% -- Additional packages
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{hyperref}
+\urlstyle{same}
+
+\begin{document}
+
+\begin{tcbposter}[
+    poster = {columns=1, rows=1, spacing=0pt},
+    boxes = {sharp corners, halign=center, valign=center, boxrule=0pt}
+]
+
+% -- Headbox
+\posterbox[
+    colback=minimal-main,
+    halign=center]
+    {name=headbox,
+    span=1,
+    rowspan=\headboxheight}
+{
+    \color{white}
+    \header{Mayank Raj}
+    
+    \vspace{-7px}
+    \begin{tikzpicture}
+        \draw[fill=white] (-5.0, -0.01) rectangle (5.0, 0.01);
+    \end{tikzpicture}
+    \vspace{5px}
+    
+    \titlefont{Game Programmer seeking role}
+}
+
+% -- Sidebox
+\posterbox[
+    colback=minimal-light,
+    valign=top,
+    top=\inboxspacing,
+    halign=right,
+    right=\inboxspacing]
+    {name=sidebar,
+    below=headbox,
+    column=1,
+    span=\sideboxwidth,
+    rowspan=\mainboxheight}
+{
+    \begin{tabular}{rl}
+        \multicolumn{2}{@{}c@{}}{\scalebox{0.25}{\input{images/image.tex}}} \\
+        \mediumspace
+        & \titlefont{Contact} \\
+        
+        \hline \mediumspace
+        
+        \multirow{2}{*}{\scalebox{0.075}{\input{icons/phone.tex}}}
+            & \textbf{Phone} \\
+            & \href{tel:7387700430}{\text{7387700430}} \\
+            & \smallspace
+        
+        \multirow{2}{*}{\scalebox{0.075}{\input{icons/email.tex}}}
+            & \textbf{E-Mail} \\
+            & \href{mailto:envelpemayank4105@gmail.com}{\text{envelpemayank4105@gmail.com}} \\
+            & \largespace
+        
+        
+        & \titlefont{Personal} \\
+        \hline \mediumspace
+        
+        
+        
+        & \titlefont{Platforms} \\
+        \hline \mediumspace
+        
+        
+        \multirow{2}{*}{\scalebox{0.075}{\input{icons/github.tex}}}
+            & \textbf{github} \\
+            & \smallspace
+        
+        \multirow{2}{*}{\scalebox{0.075}{\input{icons/linkedin.tex}}}
+            & \textbf{linkedin} \\
+            & \smallspace
+        
+        
+        & \titlefont{Languages} \\
+        \hline \mediumspace
+        
+        
+    \end{tabular}
+}
+
+% -- Mainbox
+\posterbox[
+    colback=white,
+    valign=top,
+    top=\inboxspacing,
+    halign=left,
+    left=\inboxspacing  ]
+    {name=mainbox,
+    column*=1,
+    span=\mainboxwidth,
+    below=headbox,
+    rowspan=\mainboxheight}
+{
+    \begin{tabular}{>{\raggedright}p{3cm} p{10cm}}
+
+        & \titlefont{Education} \\
+        \hline \mediumspace
+        
+        Sept. 2022 – Expected May 2026
+    & \textbf{Vellore Institute of Technology, Chennai} \\
+    & Bachelor of Technology in Computer Science (Specialization in AI and ML) \\
+    & 9.01 CGPA \\
+    & \smallspace
+
+May 2020 – May 2022
+    & \textbf{Air Force School, Pune} \\
+    & Senior Secondary (Class 12) \\
+    & 95% \\
+    & \smallspace
+
+May 2018 – May 2020
+    & \textbf{Air Force School, Pune} \\
+    & Secondary (Class 10) \\
+    & 93.5% \\
+    & \smallspace
+
+
+        
+        & \titlefont{Work Experience} \\
+        \hline \mediumspace
+        
+        None
+    & \textbf{Eastern Enterprise} \\
+    & AI and Data Intern \\
+    & Travel Analytics Dashboard, ATS-Optimized Resume Platform \\
+    & \smallspace
+
+
+        
+        & \titlefont{Selected Publications} \\
+        \hline \mediumspace
+        
+            & \largespace
+
+
+        
+        & \titlefont{Awards} \\
+        \hline \mediumspace
+        
+            & \largespace
+
+
+        
+
+        
+        & \titlefont{Skills} \\
+        \hline \mediumspace
+        
+        Game Development
+& \textbf{['Unreal Engine', 'Blueprint Visual Scripting', 'Game Networking', 'Multiplayer Systems Implementation', '3D Modeling (Blender)', 'Game Physics', 'Level Design', 'UI/UX for Games', 'Animation Systems', 'C++']} \\
+Data Science
+& \textbf{['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Power BI', 'Data Pipelines', 'ETL Processes', 'Data Analysis']} \\
+AI/ML
+& \textbf{['Artificial Intelligence', 'Google TensorFlow']} \\
+Other
+& \textbf{['LaTeX', 'Figma', 'API Integration', 'ATS', 'Convai API', 'R']} \\
+    & \largespace
+
+
+    \end{tabular}
+}
+
+% -- Footbox
+\posterbox[colback=minimal-main]
+           {name=blankbox2,
+           below=sidebar,
+           column=1,
+           span=1,
+           rowspan=\footboxheight}{}
+
+\end{tcbposter}
+
+\end{document}
